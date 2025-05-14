@@ -1,0 +1,5 @@
+require("theprimegean.packer")
+require("theprimegean.remap")
+require("theprimegean.lsp_config")
+require("theprimegean.cmp")
+require("theprimegean.set")
