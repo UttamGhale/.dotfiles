@@ -14,7 +14,7 @@ font pango: JetBrainsMono 12
 
 
 # wallpaper
- output "*" bg /home/usham/Downloads/wallpaper3.jpg fill
+ output "*" bg /home/usham/Downloads/wallpaper4.jpg fill
 
 # Variables
 #
