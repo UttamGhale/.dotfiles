@@ -14,7 +14,7 @@ font pango: JetBrainsMono 12
 
 
 # wallpaper
- output "*" bg /home/usham/Downloads/wallpaper4.jpg fill
+ output "*" bg /home/usham/wallpapers/romandream.jpg fill
 
 # Variables
 #
@@ -225,14 +225,12 @@ bindsym $mod+r mode "resize"
 #
 # Read `man 5 sway-bar` for more information about this section.
 bar {
-     swaybar_command waybar
-
+        swaybar_command waybar
     }
 }
 input * {
     xkb_options caps:escape
 }
-
 
 # hide waybar 
  bindsym $mod+o exec killall -SIGUSR1 waybar
