@@ -1,7 +1,23 @@
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.fzf/bin:$PATH"
-export PATH="$HOME/development/flutter/bin:$PATH"
+
+#Add ~/.local/bin to PATH if not already included
+case ":$PATH:" in
+  *:"$HOME/.local/bin":*) ;;
+  *) PATH="$HOME/.local/bin:$PATH" ;;
+esac
+
+    # Add ~/.fzf/bin to PATH if not already included
+case ":$PATH:" in
+  *:"$HOME/.fzf/bin":*) ;;
+  *) PATH="$HOME/.fzf/bin:$PATH" ;;
+esac
+
+# Add Flutter to PATH only if it's not already present
+if [[ ":$PATH:" != *":/home/usham/development/flutter/bin:"* ]]; then
+    export PATH="$PATH:/home/usham/development/flutter/bin"
+fi
+
+
 ZSH_THEME="robbyrussell"
 
 plugins=(git)
@@ -50,3 +66,10 @@ alias lx="exa --icons"
 
 # Generated for envman. Do not edit.
 [ -s "$HOME/.config/envman/load.sh" ] && source "$HOME/.config/envman/load.sh"
+# --- Deduplicate PATH automatically ---
+dedup_path() {
+    PATH=$(echo "$PATH" | tr ':' '\n' | awk '!seen[$0]++' | paste -sd:)
+    
+}
+dedup_path
+
